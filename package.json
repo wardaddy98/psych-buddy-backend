@@ -1,0 +1,36 @@
+{
+  "name": "psych-buddy-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js",
+    "lint": "eslint ./*",
+    "lint-fix": "eslint ./* --fix",
+    "format": "prettier --write ./*"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Suddath Gautam",
+    "email": "suddath.gautam98@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.2.1",
+    "nanoid": "^4.0.2",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8"
+  }
+}
