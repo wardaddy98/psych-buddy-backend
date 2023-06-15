@@ -16,7 +16,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://psych-buddy.netlify.app'],
+    origin: [
+      'http://localhost:3000',
+      'https://psych-buddy-dev.netlify.app/',
+      'https://psych-buddy.netlify.app',
+    ],
     methods: ['POST, PATCH', 'DELETE'],
   }),
 );
