@@ -113,14 +113,33 @@ export const createThread = async (req, res) => {
       category = JSON.parse(JSON.stringify(category));
       delete payload.otherCategory;
       payload.category = category._id;
+
+      const categories = await Category.aggregate([
+        {
+          $project: {
+            __v: 0,
+          },
+        },
+        {
+          $addFields: {
+            value: '$_id',
+          },
+        },
+      ]).exec();
+
+      return handleResponse(res, {
+        type: 'SUCCESS',
+        message: 'Thread created successfully!',
+        body: { categories },
+      });
+    } else {
+      await Thread.create({ ...payload, postedBy: userId });
+
+      return handleResponse(res, {
+        type: 'SUCCESS',
+        message: 'Thread created successfully!',
+      });
     }
-
-    await Thread.create({ ...payload, postedBy: userId });
-
-    return handleResponse(res, {
-      type: 'SUCCESS',
-      message: 'Thread created successfully!',
-    });
   } catch (err) {
     return handleResponse(res, {
       type: 'ERROR',
