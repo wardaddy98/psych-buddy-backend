@@ -114,6 +114,8 @@ export const createThread = async (req, res) => {
       delete payload.otherCategory;
       payload.category = category._id;
 
+      await Thread.create({ ...payload, postedBy: userId });
+
       const categories = await Category.aggregate([
         {
           $project: {
